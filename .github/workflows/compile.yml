@@ -1,0 +1,48 @@
+name: Compile LaTeX to PDF
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'main.tex'
+      - '**.tex'
+      - '.github/workflows/compile.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  compile:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Compile LaTeX document
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: main.tex
+          work_in_root_file_dir: true
+
+      - name: Verify PDF was created
+        run: |
+          if [ -f main.pdf ]; then
+            echo "✓ PDF compiled successfully"
+            ls -lh main.pdf
+          else
+            echo "✗ PDF not found!"
+            exit 1
+          fi
+
+      - name: Commit and push PDF
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          
+          if git diff --quiet main.pdf 2>/dev/null || [ ! -f main.pdf ]; then
+            echo "No changes to PDF, skipping commit"
+          else
+            git add main.pdf
+            git commit -m "Update compiled PDF" || echo "No changes to commit"
+            git push
+          fi
