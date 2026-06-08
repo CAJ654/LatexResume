@@ -22,12 +22,12 @@ jobs:
       - name: Compile LaTeX document
         uses: xu-cheng/latex-action@v3
         with:
-          root_file: main.tex # Change this if your file has a different name
+          root_file: main.tex
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: '.' # Uploads the root directory containing your newly compiled PDF
+          path: './main.pdf'
 
       - name: Deploy to GitHub Pages
         id: deployment
