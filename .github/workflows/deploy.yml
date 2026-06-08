@@ -3,6 +3,8 @@ name: Deploy LaTeX to GitHub Pages
 on:
   push:
     branches: [main]
+    paths:
+      - 'main.pdf'
 
 permissions:
   contents: read
@@ -18,12 +20,6 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-
-      - name: Compile LaTeX document
-        uses: xu-cheng/latex-action@v3
-        with:
-          root_file: main.tex
-          work_in_root_file_dir: true
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
