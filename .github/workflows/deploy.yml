@@ -5,6 +5,12 @@ on:
     branches: [main]
     paths:
       - 'main.pdf'
+  workflow_dispatch:
+    inputs:
+      pdf_path:
+        description: 'PDF file path to upload'
+        required: true
+        default: 'main.pdf'
 
 permissions:
   contents: read
@@ -24,7 +30,7 @@ jobs:
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: 'main.pdf'
+          path: ${{ github.event.inputs.pdf_path }}
 
       - name: Deploy to GitHub Pages
         id: deployment
