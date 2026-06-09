@@ -27,10 +27,27 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Prepare Pages artifact directory
+        run: |
+          # Read the workflow_dispatch input if present; fall back to main.pdf
+          PDF_PATH="${{ github.event.inputs.pdf_path }}"
+          PDF_PATH="${PDF_PATH:-main.pdf}"
+          echo "Preparing artifact from: $PDF_PATH"
+          mkdir -p pages-artifact
+          if [ -f "$PDF_PATH" ]; then
+            cp "$PDF_PATH" pages-artifact/
+            echo "Copied $PDF_PATH -> pages-artifact/"
+            ls -la pages-artifact
+          else
+            echo "::error::PDF not found at $PDF_PATH"
+            ls -la
+            exit 1
+          fi
+
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ${{ github.event.inputs.pdf_path }}
+          path: pages-artifact
 
       - name: Deploy to GitHub Pages
         id: deployment
