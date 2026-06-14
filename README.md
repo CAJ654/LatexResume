@@ -1,5 +1,3 @@
-Live Site: https://resume.supersoftwareandsilicon.com/
-
 # Resume
 ![Build Status](https://github.com/CAJ654/LatexResume/actions/workflows/deploy.yml/badge.svg)
 
