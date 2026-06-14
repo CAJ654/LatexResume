@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Christian Diaz Resume</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #0f172a;
+      color: #e2e8f0;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+    }
+    .container {
+      width: min(100%, 900px);
+      padding: 2rem;
+      text-align: center;
+    }
+    .card {
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.2);
+      border-radius: 24px;
+      box-shadow: 0 30px 60px rgba(15, 23, 42, 0.45);
+      padding: 2rem;
+      backdrop-filter: blur(12px);
+    }
+    h1 {
+      margin: 0;
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      letter-spacing: -0.03em;
+    }
+    p {
+      margin: 1rem 0 1.5rem;
+      line-height: 1.75;
+      color: #cbd5e1;
+    }
+    .button-row {
+      display: inline-flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.9rem 1.4rem;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      font-weight: 600;
+      text-decoration: none;
+      transition: transform 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
+    }
+    .button:hover {
+      transform: translateY(-1px);
+    }
+    .button-primary {
+      background: linear-gradient(135deg,#38bdf8,#6366f1);
+      color: white;
+    }
+    .button-secondary {
+      background: transparent;
+      color: #e2e8f0;
+      border-color: rgba(148, 163, 184, 0.35);
+    }
+    .footer {
+      margin-top: 2rem;
+      color: #94a3b8;
+      font-size: 0.95rem;
+    }
+    a.link {
+      color: #38bdf8;
+      text-decoration: none;
+    }
+    a.link:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="card">
+      <h1>Christian Diaz</h1>
+      <p>Welcome to my resume. This page hosts a downloadable PDF version of my LaTeX resume and links to my portfolio.</p>
+      <div class="button-row">
+        <a class="button button-primary" href="main.pdf" target="_blank" rel="noopener noreferrer">View Resume PDF</a>
+        <a class="button button-secondary" href="https://github.com/CAJ654" target="_blank" rel="noopener noreferrer">GitHub Profile</a>
+      </div>
+      <div class="footer">
+        <p>Deployed with GitHub Pages from the `main` branch.</p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
