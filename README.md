@@ -1,4 +1,8 @@
+Live Site: https://resume.supersoftwareandsilicon.com/
+
 # Resume
+![Build Status](https://github.com/CAJ654/LatexResume/actions/workflows/deploy.yml/badge.svg)
+
 A digital Resume created using Overleaf and the LaTeX language
 
 ## GitHub Pages Deployment
