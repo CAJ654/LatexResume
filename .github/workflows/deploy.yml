@@ -46,6 +46,15 @@ jobs:
             exit 1
           fi
 
+          if [ -f "main.tex" ]; then
+            cp main.tex pages-artifact/
+            echo "Copied main.tex -> pages-artifact/"
+          else
+            echo "::error::main.tex not found"
+            ls -la
+            exit 1
+          fi
+
           if [ -f "$PDF_PATH" ]; then
             cp "$PDF_PATH" pages-artifact/
             echo "Copied $PDF_PATH -> pages-artifact/"

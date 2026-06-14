@@ -5,95 +5,281 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Christian Diaz Resume</title>
   <style>
+    :root {
+      color-scheme: dark;
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: #e2e8f0;
+      background: #0f172a;
+    }
+    * {
+      box-sizing: border-box;
+    }
     body {
       margin: 0;
-      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: #0f172a;
-      color: #e2e8f0;
+      padding: 2rem;
       min-height: 100vh;
-      display: grid;
-      place-items: center;
+      background: radial-gradient(circle at top, rgba(56, 189, 248, 0.15), transparent 28%),
+                  linear-gradient(180deg, #020617 0%, #0f172a 100%);
     }
-    .container {
-      width: min(100%, 900px);
+    #resume {
+      max-width: 960px;
+      margin: 0 auto;
       padding: 2rem;
-      text-align: center;
-    }
-    .card {
-      background: rgba(15, 23, 42, 0.9);
-      border: 1px solid rgba(148, 163, 184, 0.2);
+      background: rgba(15, 23, 42, 0.92);
+      border: 1px solid rgba(148, 163, 184, 0.18);
       border-radius: 24px;
-      box-shadow: 0 30px 60px rgba(15, 23, 42, 0.45);
-      padding: 2rem;
-      backdrop-filter: blur(12px);
+      box-shadow: 0 40px 80px rgba(0, 0, 0, 0.35);
+      color: #e2e8f0;
     }
-    h1 {
+    h1, h2 {
       margin: 0;
-      font-size: clamp(2.5rem, 5vw, 4rem);
       letter-spacing: -0.03em;
     }
-    p {
-      margin: 1rem 0 1.5rem;
+    h1 {
+      font-size: clamp(2.5rem, 4vw, 3.8rem);
+      margin-bottom: 0.35rem;
+    }
+    h2 {
+      margin-top: 2rem;
+      font-size: clamp(1.4rem, 2.2vw, 2rem);
+      border-bottom: 1px solid rgba(148, 163, 184, 0.25);
+      padding-bottom: 0.5rem;
+    }
+    .intro {
+      margin-top: 0.85rem;
       line-height: 1.75;
       color: #cbd5e1;
     }
-    .button-row {
-      display: inline-flex;
+    .section-row {
+      display: grid;
       gap: 1rem;
-      flex-wrap: wrap;
-      justify-content: center;
+      margin-top: 1.2rem;
     }
-    .button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
+    .cvitem,
+    .cventry {
+      margin-top: 1rem;
+    }
+    .cvitem {
+      display: grid;
+      grid-template-columns: 180px 1fr;
       gap: 0.5rem;
-      padding: 0.9rem 1.4rem;
-      border-radius: 999px;
-      border: 1px solid transparent;
-      font-weight: 600;
-      text-decoration: none;
-      transition: transform 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
+      align-items: baseline;
     }
-    .button:hover {
-      transform: translateY(-1px);
+    .cvitem .label {
+      color: #94a3b8;
+      font-weight: 700;
     }
-    .button-primary {
-      background: linear-gradient(135deg,#38bdf8,#6366f1);
-      color: white;
+    .cvitem .value,
+    .cventry p {
+      color: #cbd5e1;
+      line-height: 1.7;
     }
-    .button-secondary {
-      background: transparent;
-      color: #e2e8f0;
-      border-color: rgba(148, 163, 184, 0.35);
+    .cventry {
+      padding: 1rem 1rem 1rem 0;
+      border-left: 3px solid rgba(56, 189, 248, 0.8);
     }
-    .footer {
+    .cventry .meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      align-items: baseline;
+      margin-bottom: 0.65rem;
+      color: #cbd5e1;
+    }
+    .cventry .meta strong {
+      color: #f8fafc;
+      font-size: 1rem;
+    }
+    .cventry .year {
+      color: #94a3b8;
+      min-width: 6rem;
+      font-weight: 700;
+    }
+    ul {
+      margin: 0.55rem 0 0 0;
+      padding-left: 1.25rem;
+      color: #cbd5e1;
+    }
+    ul li {
+      margin-bottom: 0.5rem;
+      line-height: 1.7;
+    }
+    .note {
       margin-top: 2rem;
       color: #94a3b8;
+      text-align: center;
       font-size: 0.95rem;
     }
-    a.link {
+    .error {
+      color: #f87171;
+      font-weight: 700;
+    }
+    a {
       color: #38bdf8;
       text-decoration: none;
     }
-    a.link:hover {
-      text-decoration: underline;
-    }
   </style>
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']]
+      },
+      svg: { fontCache: 'global' }
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
 </head>
 <body>
-  <div class="container">
-    <div class="card">
-      <h1>Christian Diaz</h1>
-      <p>Welcome to my resume. This page hosts a downloadable PDF version of my LaTeX resume and links to my portfolio.</p>
-      <div class="button-row">
-        <a class="button button-primary" href="main.pdf" target="_blank" rel="noopener noreferrer">View Resume PDF</a>
-        <a class="button button-secondary" href="https://github.com/CAJ654" target="_blank" rel="noopener noreferrer">GitHub Profile</a>
-      </div>
-      <div class="footer">
-        <p>Deployed with GitHub Pages from the `main` branch.</p>
-      </div>
-    </div>
-  </div>
+  <main id="resume">
+    <h1>Loading resume...</h1>
+    <p class="intro">Fetching LaTeX source and rendering the resume inline using MathJax.</p>
+  </main>
+  <script>
+    const resumeInfo = {
+      name: '',
+      address: '',
+      phone: '',
+      email: '',
+      homepage: ''
+    };
+
+    function cleanText(text) {
+      return text
+        .replace(/\\textbf\{([^}]+)\}/g, '<strong>$1</strong>')
+        .replace(/\\&/g, '&')
+        .replace(/\{([^}]+)\}/g, '$1')
+        .replace(/\\textit\{([^}]+)\}/g, '<em>$1</em>')
+        .replace(/\\vspace\{[^}]+\}/g, '')
+        .trim();
+    }
+
+    function buildHeader() {
+      const fields = [];
+      if (resumeInfo.address) fields.push(resumeInfo.address);
+      if (resumeInfo.phone) fields.push(resumeInfo.phone);
+      if (resumeInfo.email) fields.push(`<a href="mailto:${resumeInfo.email}">${resumeInfo.email}</a>`);
+      if (resumeInfo.homepage) fields.push(`<a href="${resumeInfo.homepage}" target="_blank" rel="noopener noreferrer">${resumeInfo.homepage}</a>`);
+      return `
+        <header>
+          <h1>${resumeInfo.name || 'Christian Diaz'}</h1>
+          <p class="intro">${fields.join(' · ')}</p>
+        </header>
+      `;
+    }
+
+    function parseResume(tex) {
+      const lines = tex.replace(/\r/g, '').split('\n');
+      const html = [];
+      let inList = false;
+      let inEntry = false;
+
+      for (let rawLine of lines) {
+        const line = rawLine.trim();
+        if (!line || line.startsWith('%')) continue;
+        if (/^\\(begin|end)\{document\}|^\\makecvtitle/.test(line)) continue;
+
+        let match;
+        if ((match = line.match(/^\\name\{([^}]*)\}\{([^}]*)\}/))) {
+          resumeInfo.name = cleanText(`${match[1]} ${match[2]}`);
+          continue;
+        }
+        if ((match = line.match(/^\\address\{([^}]*)\}\{([^}]*)\}/))) {
+          const parts = [cleanText(match[1]), cleanText(match[2])].filter(Boolean);
+          resumeInfo.address = parts.join(' / ');
+          continue;
+        }
+        if ((match = line.match(/^\\phone(?:\[[^\]]+\])?\{([^}]*)\}/))) {
+          resumeInfo.phone = cleanText(match[1]);
+          continue;
+        }
+        if ((match = line.match(/^\\email\{([^}]*)\}/))) {
+          resumeInfo.email = cleanText(match[1]);
+          continue;
+        }
+        if ((match = line.match(/^\\homepage\{([^}]*)\}/))) {
+          resumeInfo.homepage = cleanText(match[1]);
+          continue;
+        }
+        if (/^\\(documentclass|usepackage|moderncvstyle|moderncvcolor|nopagenumbers|setlength|renewcommand|thispagestyle|pagestyle)/.test(line)) {
+          continue;
+        }
+
+        if ((match = line.match(/^\\section\{([^}]+)\}/))) {
+          if (inList) { html.push('</ul>'); inList = false; }
+          if (inEntry) { html.push('</div>'); inEntry = false; }
+          html.push(`<h2>${cleanText(match[1])}</h2>`);
+          continue;
+        }
+
+        if ((match = line.match(/^\\cvitem\{([^}]+)\}\{([^}]+)\}/))) {
+          if (inList) { html.push('</ul>'); inList = false; }
+          if (inEntry) { html.push('</div>'); inEntry = false; }
+          html.push(`<div class="cvitem"><span class="label">${cleanText(match[1])}</span><span class="value">${cleanText(match[2])}</span></div>`);
+          continue;
+        }
+
+        if ((match = line.match(/^\\cventry\{([^}]+)\}\{([^}]+)\}\{([^}]+)\}\{([^}]+)\}\{\}\{\s*$/))) {
+          if (inList) { html.push('</ul>'); inList = false; }
+          if (inEntry) { html.push('</div>'); }
+          inEntry = true;
+          const [year, title, subtitle, location] = [match[1], match[2], match[3], match[4]].map(cleanText);
+          html.push('<div class="cventry">');
+          html.push('<div class="meta">');
+          html.push(`<span class="year">${year}</span>`);
+          html.push(`<strong>${title}</strong>`);
+          if (subtitle) html.push(`<span>${subtitle}</span>`);
+          if (location) html.push(`<span>${location}</span>`);
+          html.push('</div>');
+          continue;
+        }
+
+        if (line.startsWith('\\begin{itemize}')) {
+          inList = true;
+          html.push('<ul>');
+          continue;
+        }
+        if (line.startsWith('\\end{itemize}')) {
+          if (inList) { html.push('</ul>'); inList = false; }
+          continue;
+        }
+        if (line.startsWith('\\item')) {
+          html.push(`<li>${cleanText(line.replace(/^\\item\s*/, ''))}</li>`);
+          continue;
+        }
+        if (line === '}') {
+          if (inEntry) { html.push('</div>'); inEntry = false; }
+          continue;
+        }
+
+        if (inEntry) {
+          html.push(`<p>${cleanText(line)}</p>`);
+        }
+      }
+
+      if (inList) html.push('</ul>');
+      if (inEntry) html.push('</div>');
+      return html.join('\n');
+    }
+
+    async function renderResume() {
+      try {
+        const response = await fetch('main.tex');
+        if (!response.ok) throw new Error('Could not fetch main.tex');
+        const tex = await response.text();
+        const parsed = parseResume(tex);
+        const container = document.getElementById('resume');
+        container.innerHTML = buildHeader() + parsed;
+        MathJax.typesetPromise();
+      } catch (error) {
+        document.getElementById('resume').innerHTML = `
+          <h1 class="error">Resume failed to load</h1>
+          <p class="intro">${error.message}</p>
+        `;
+      }
+    }
+
+    renderResume();
+  </script>
 </body>
 </html>
